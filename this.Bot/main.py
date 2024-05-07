@@ -43,5 +43,18 @@ async def remap(ctx, start, stop, new_start, new_stop, value):
     value += new_start - start 
     await ctx.send(f"{value}")
 
+@client.command()
+async def get_role(ctx):
+    role = discord.utils.get(ctx.author.guild.roles, name="Member")
+    await ctx.author.add_roles(role)
+
+@client.event
+async def on_member_join(member):
+    role = discord.utils.get(member.guild.roles, name="Guest")
+    channel = client.get_channel(<id>)
+    await channel.send(f"Hello, {member.mention}!")
+    await member.add_roles(role)
+
+
 
 client.run("<token>")
