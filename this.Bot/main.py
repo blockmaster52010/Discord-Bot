@@ -86,6 +86,12 @@ async def create_image(ctx):
     await ctx.send(file=discord.File(img_path))
     os.remove(img_path)
 
+@client.command()
+async def image(ctx):
+    embed = discord.Embed(title="Heres Your Image")
+    embed.set_image(url="https://m.media-amazon.com/images/I/71nwE3uVB7L._AC_UY1000_.jpg")
+    await ctx.send(embed=embed)
+
 @client.event
 async def on_message(message):
     if message.content.lower() == "pls kick me":
