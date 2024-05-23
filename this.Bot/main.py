@@ -96,6 +96,8 @@ async def image(ctx):
 async def on_message(message):
     if message.content.lower() == "pls kick me":
         await message.author.kick(reason="you asked")
+    await client.process_commands(message)
+
 
 @client.command()
 async def get_role(ctx):
